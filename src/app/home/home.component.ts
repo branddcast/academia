@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { UsersService } from "../shared/users.service";
 
 @Component({
   selector: "app-home",
@@ -9,7 +10,7 @@ import { Router } from "@angular/router";
 export class HomeComponent implements OnInit {
   isAuth: boolean = false;
 
-  constructor(public router: Router) {}
+  constructor(public userService: UsersService, public router: Router) {}
 
   ngOnInit() {
     this.isAuth = false;
@@ -17,7 +18,8 @@ export class HomeComponent implements OnInit {
   }
 
   getUserLogged() {
-    if (this.isAuth) this.router.navigateByUrl("/dashboard");
+    if (this.userService.getToken() !== null)
+      this.router.navigateByUrl("/dashboard");
     else this.router.navigateByUrl("/login");
   }
 }

@@ -1,20 +1,40 @@
-<div class="login">
-	<form class="custom-form" method="post">
-		<h1>Login</h1>
-		<input
-      type="text"
-      [(ngModel)]="user"
-      name="user"
-      placeholder="Usuario"
-      required="required"
-    />
-		<input
-      type="password"
-      [(ngModel)]="password"
-      name="password"
-      placeholder="Password"
-      required="required"
-    />
-		<button type="submit" (click)="login()">Entrar</button>
-	</form>
+<div class="box">
+	<div class="login">
+		<form class="custom-form" method="post">
+			<div class="row">
+				<div class="col-md-12">
+					<h2>Inicio de Sesión</h2>
+				</div>
+			</div>
+			<div class="mb-4 mt-3">
+				<label for="user" class="form-label">Correo electrónico</label>
+				<input
+          id="user"
+            type="email"
+            [(ngModel)]="user"
+            name="user"
+            placeholder=""
+            required="required"
+            class="form-control"
+          />
+				<div *ngIf="wrongUser !== null" class="form-text text-danger">{{wrongUser}}</div>
+			</div>
+			<div class="mb-4">
+				<label for="pass" class="form-label">Contraseña</label>
+				<input
+            id="pass"
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            placeholder=""
+            required="required"
+            class="form-control"
+          />
+				<div *ngIf="wrongPassword !== null" class="form-text text-danger">{{wrongPassword}}</div>
+			</div>
+			<div class="mb-3">
+				<button class="btn btn-primary btn-block" type="submit" (click)="login()">Entrar</button>
+			</div>
+		</form>
+	</div>
 </div>

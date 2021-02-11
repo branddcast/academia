@@ -17,7 +17,10 @@ export class DashboardComponent implements OnInit {
 
   getUserLogged() {
     const token = this.userService.getToken();
-    if (token === null) this.router.navigateByUrl("/login");
+    console.log(["DASHBOARD", token]);
+    if (token === null) {
+      this.router.navigateByUrl("/login");
+    }
     this.userService.getUser().subscribe(user => {
       if (!user) this.router.navigateByUrl("/login");
     });

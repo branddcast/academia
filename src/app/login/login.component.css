@@ -1,0 +1,16 @@
+.login {
+  background-color: #e8e8e8;
+  width: 30%;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: #ddd 2px 2px 6px;
+  margin: 0 auto;
+  position: absolute;
+  left: 45%;
+  min-width: 300px;
+}
+
+.box {
+  position: relative;
+  margin-top: 150px;
+}
