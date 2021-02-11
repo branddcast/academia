@@ -1,0 +1,21 @@
+<div class="container-fluid" style="padding-left: 0px">
+	<div class="row mt-5">
+		<div class="col-md-12">
+			<nav class="navbar fixed-top navbar-dark bg-primary">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#">Academia</a>
+					<div class="right">
+					</div>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div class="row">
+		<div *ngIf="getToken() !== null" class="col-md-auto">
+			<app-navbar></app-navbar>
+		</div>
+		<div class="col-md-10">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
+</div>

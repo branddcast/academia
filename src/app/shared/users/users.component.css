@@ -1,0 +1,9 @@
+.avatar {
+  width: 50px;
+  border-radius: 100%;
+}
+.disabled {
+  background-color: #e3e3e3;
+  padding: 10px 20px;
+  cursor: not-allowed;
+}
