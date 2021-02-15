@@ -11,6 +11,9 @@ import { UsersComponent } from "./shared/users/users.component";
 import { NavBarComponent } from "./shared/navBar/navBar.component";
 import { HomeComponent } from "./home/home.component";
 import { MaestrosComponent } from "./shared/maestros/maestros.component";
+import { GruposComponent } from "./shared/grupos/grupos.component";
+import { MateriasComponent } from "./shared/materias/materias.component";
+import { InscripcionComponent } from './shared/inscripcion/inscripcion.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { MaestrosComponent } from "./shared/maestros/maestros.component";
     UsersComponent,
     MaestrosComponent,
     NavBarComponent,
-    HomeComponent
+    HomeComponent,
+    GruposComponent,
+    MateriasComponent,
+    InscripcionComponent
   ],
   imports: [
     BrowserModule,

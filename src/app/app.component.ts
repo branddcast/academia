@@ -28,6 +28,10 @@ export class AppComponent implements OnInit {
     return this.userService.getToken();
   }
 
+  getUser() {
+    return this.userService.getUser();
+  }
+
   public logout() {
     this.router.navigateByUrl("/login");
   }

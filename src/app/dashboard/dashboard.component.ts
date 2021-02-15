@@ -21,8 +21,7 @@ export class DashboardComponent implements OnInit {
     if (token === null) {
       this.router.navigateByUrl("/login");
     }
-    this.userService.getUser().subscribe(user => {
-      if (!user) this.router.navigateByUrl("/login");
-    });
+    const user = this.userService.getUser();
+    if (!user) this.router.navigateByUrl("/login");
   }
 }

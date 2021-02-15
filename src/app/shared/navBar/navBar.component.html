@@ -2,10 +2,18 @@
 	<nav>
 		<ul>
 			<li routerLinkActive="active"><a [routerLink]="['/dashboard']">Inicio </a></li>
-			<li routerLinkActive="active"><a [routerLink]="['/maestros']">Maestros </a></li>
-			<li routerLinkActive="active"><a [routerLink]="['/alumnos']">Alumnos </a></li>
-			<li routerLinkActive="active"><a [routerLink]="['/grupos']">Grupos </a></li>
-			<li routerLinkActive="active"><a [routerLink]="['/inscripcion']">Inscripcion</a></li>
+			<li *ngIf="getUser().data.role == 'admin' || getUser().data.role == 'superadmin'" routerLinkActive="active">
+				<a [routerLink]="['/maestros']">Maestros </a></li>
+			<li *ngIf="getUser().data.role == 'admin' || getUser().data.role == 'superadmin'" routerLinkActive="active">
+				<a [routerLink]="['/alumnos']">Alumnos
+				</a></li>
+			<li *ngIf="getUser().data.role == 'teacher' || getUser().data.role == 'superadmin'"
+				routerLinkActive="active"><a [routerLink]="['/materias']">Materias </a></li>
+			<li *ngIf="getUser().data.role == 'teacher' || getUser().data.role == 'superadmin'"
+				routerLinkActive="active"><a [routerLink]="['/grupos']">Grupos
+				</a></li>
+			<li *ngIf="getUser().data.role == 'student' || getUser().data.role == 'superadmin'"
+				routerLinkActive="active"><a [routerLink]="['/inscripcion']">Inscripcion</a></li>
 			<li routerLinkActive="active"><a [routerLink]="['/logout']">Salir </a></li>
 		</ul>
 	</nav>

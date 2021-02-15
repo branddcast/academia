@@ -7,6 +7,19 @@ import { Observable } from "rxjs";
 })
 export class UsersService {
   public auth: boolean = false;
+  temporaryUser: any = {
+    data: {
+      id: 2,
+      email: "janet.weaver@reqres.in",
+      first_name: "Janet",
+      last_name: "Weaver",
+      //role: "admin",
+      //role: "teacher",
+      //role: "student",
+      role: "superadmin",
+      avatar: "https://reqres.in/img/faces/2-image.jpg"
+    }
+  };
 
   constructor(private http: HttpClient) {}
 
@@ -22,7 +35,8 @@ export class UsersService {
     return localStorage.getItem("token");
   }
   getUser() {
-    return this.http.get("https://reqres.in/api/users/2");
+    //return this.http.get("https://reqres.in/api/users/2");
+    return this.temporaryUser;
   }
   getUserLogged() {
     const token = this.getToken();

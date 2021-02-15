@@ -11,11 +11,17 @@ import { UsersService } from "../users.service";
 export class MaestrosComponent implements OnInit {
   users: any = [];
   public page: number = 1;
+  role: string;
 
   constructor(public userService: UsersService, public router: Router) {}
 
   ngOnInit() {
     this.getUserLogged();
+    if (
+      this.userService.getUser().data.role !== "admin" &&
+      this.userService.getUser().data.role !== "superadmin"
+    )
+      this.router.navigateByUrl("/dashboard");
     this.userService.getUserList(this.page).subscribe(data => {
       this.users = data;
     });
@@ -32,8 +38,7 @@ export class MaestrosComponent implements OnInit {
   getUserLogged() {
     const token = this.userService.getToken();
     if (token === null) this.router.navigateByUrl("/login");
-    this.userService.getUser().subscribe(user => {
-      if (!user) this.router.navigateByUrl("/login");
-    });
+    const user = this.userService.getUser();
+    if (!user) this.router.navigateByUrl("/login");
   }
 }
